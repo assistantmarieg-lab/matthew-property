@@ -1,1 +1,78 @@
 @import "tailwindcss";
+
+/* 1. Rolex Brand Variables (Tailwind v4 format) */
+@theme {
+	--color-navy: #1C2B44;
+	--color-blue: #25416B;
+	--color-light-blue: #4B7BAE;
+	--color-beige: #F6F2E9;
+	--color-gold-dark: #B88645;
+	--color-gold-mid: #DEAF5F;
+	--color-gold-light: #FBE494;
+}
+
+/* 2. Foundation & Typography */
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: var(--color-beige);
+	color: var(--color-navy);
+	font-family: 'Helvetica Neue', Arial, sans-serif;
+	overflow-x: hidden;
+}
+
+/* 3. Metallic Gradients */
+.bg-metallic-navy {
+	background: linear-gradient(135deg, #1C2B44 0%, #25416B 50%, #4B7BAE 100%);
+}
+
+.text-metallic-gold {
+	background: linear-gradient(135deg, #B88645 0%, #FBE494 50%, #DEAF5F 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.border-metallic-gold {
+	border-image: linear-gradient(135deg, #B88645, #FBE494, #DEAF5F) 1;
+}
+
+/* 4. Physics-Based Animations & Easing */
+.slow-snap {
+	transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mask-reveal {
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+	transform: translateY(40px);
+	opacity: 0;
+	transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mask-reveal.visible {
+	transform: translateY(0);
+	opacity: 1;
+}
+
+/* 5. Magnetic Button Hover Effects */
+.magnetic-btn {
+	transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.magnetic-btn:hover {
+	transform: scale(1.05) translateY(-2px);
+	box-shadow: 0 10px 30px -10px rgba(184, 134, 69, 0.5); /* Gold glow */
+}
+
+/* 6. Deep Parallax Image Container */
+.parallax-container {
+	overflow: hidden;
+	position: relative;
+}
+
+.parallax-img {
+	transition: transform 0.1s ease-out;
+	will-change: transform;
+}
